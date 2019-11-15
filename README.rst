@@ -1,9 +1,10 @@
-Sample Module Repository
-========================
+David Hartman's Python Template
+===============================
 
-This simple project is an example repo for Python projects.
+This will become my template repository for Python related projects.
 
-`Learn more <http://www.kennethreitz.org/essays/repository-structure-and-python>`_.
+See my confluence wiki,  `Organizing Python Resources (Modules/Projects/etc) <https://davidhartman.atlassian.net/wiki/spaces/PYTHON/pages/196629>`_ for more details.
+
 
 ---------------
 
