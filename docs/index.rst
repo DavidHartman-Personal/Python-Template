@@ -1,10 +1,11 @@
 .. sample documentation master file, created by
-   sphinx-quickstart on Mon Apr 16 21:22:43 2012.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. reStructuredText (RST) documentation - https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html
 
 Welcome to sample's documentation!
 ==================================
+
+.. To include Documentation for a class use
+.. .. automodule:: <package>.<Class file Name>
 
 Contents:
 
