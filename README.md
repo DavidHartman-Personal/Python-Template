@@ -30,6 +30,7 @@ To test using this template repository, the following steps can be done.
    2. `gh repo delete <repo to delete>`
 4. Cleanup local PyCharm project.  Needs to be run as sudo to handle .git/ directory:
    1. `sudo rm -rf <project directory>`
+   2. NOTE: May need to run this twice to handle permissions issue with .git/ directory.
 
 
 ## Project/Template Organization
