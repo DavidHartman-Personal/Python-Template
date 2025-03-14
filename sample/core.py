@@ -16,36 +16,37 @@ __author__ = 'David Hartman'
 import sys
 import os
 import datetime
+from . import helpers
 
 # The below is how variables should be documented with docstrings
 
-#: This effectively defines the root of the project and so adding ..\, etc is not needed in config files
+# <Data Type>: Variables should have a comment as in this case. <Data Type>: can be used to note the variables data type
 PROJECT_ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
 
-#: Directory that contains configuration files, update as needed.
-CONF_DIR = os.path.join(PROJECT_ROOT_DIR, 'conf')
 
-#: Directory were data files/extracts/reports will be stored
-DATA_DIR = os.path.join(PROJECT_ROOT_DIR, 'data')
+def get_hmm() -> str:
+    """This is a placeholder for an internal function to the module.  it should be removed/replaced as needed.
 
-FILENAME_INPUT_CONFIG = os.environ.get('CONFIG_FILE_PATH',
-                                       os.path.join(CONF_DIR, 'test.conf'))
+    Longer description of function
 
-
-from . import helpers
-
-
-def get_hmm():
-	"""This is a place holder for an internal function to the module.  it should be removed/replaced as needed.
-
-	"""
-	return 'hmmm...'
+    Returns:
+        str: Description of any returned value(s)
+    """
+    return 'hmmm...'
 
 
-def function_example(param1, param2withdefault=False):
-	"""This is a that can be called outside this module by way of an import."""
-	if helpers.get_answer():
-		print(get_hmm())
+def function_example(param1, param2withdefault=False) -> None:
+    """This is a placeholder for an internal function to the module.  it should be removed/replaced as needed.
+
+    Longer description of function
+
+    Returns:
+        <Data Type>: Description of any returned value(s)
+
+    """
+    if helpers.get_answer():
+        print(get_hmm())
+
 
 if __name__ == "__main__":
-	function_example()
+    function_example(param1="")
