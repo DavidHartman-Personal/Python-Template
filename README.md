@@ -17,6 +17,20 @@ The following steps should be completed once a pyton project has been created us
 6. Be sure to update this README file to remove any text that is not relevant for the project.
 
 - [ ] Add Documentation regarding creating/running tests.
+- [ ] Setup mkdocs run configuration
+- [ ] Setup default python interpreter when creating PyCharm project from clone repo.
+
+To test using this template repository, the following steps can be done.
+
+1. Create new repo using this repo as the template.  This can be done by running the following command: 
+   1. `gh repo create <repo new> --template DavidHartman-Personal/Python-Template --private`
+2. Test changes to template including updates to the sample code, documentation, etc.
+3. Delete the repo with the following once testing is complete.  The delete_repo permission needs to be granted first.
+   1. `gh auth refresh -h github.com -s delete_repo`
+   2. `gh repo delete <repo to delete>`
+4. Cleanup local PyCharm project.  Needs to be run as sudo to handle .git/ directory:
+   1. `sudo rm -rf <project directory>`
+
 
 ## Project/Template Organization
 
