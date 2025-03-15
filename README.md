@@ -17,8 +17,6 @@ The following steps should be completed once a pyton project has been created us
 6. Be sure to update this README file to remove any text that is not relevant for the project.
 
 - [ ] Add Documentation regarding creating/running tests.
-- [ ] Setup mkdocs run configuration
-- [ ] Setup default python interpreter when creating PyCharm project from clone repo.
 
 To test using this template repository, the following steps can be done.
 
@@ -32,6 +30,9 @@ To test using this template repository, the following steps can be done.
    1. `sudo rm -rf <project directory>`
    2. NOTE: May need to run this twice to handle permissions issue with .git/ directory.
 
+`gh repo delete test_repo --yes`
+Need to run the following twice due to permissions issue.
+`sudo rm -rf /mnt/c/Users/david/Dropbox/Programming/Python/PyCharmProjects/test_repo`
 
 ## Project/Template Organization
 
