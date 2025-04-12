@@ -5,7 +5,7 @@ assumes that proper docstrings are included throughout the project code.  To inc
 docstrings, a mkdocs reference to the source code should be included below.
 An example of how to include docstring documentation would to inclued the following:
 
-`::: calculator.calculations`
+::: calculator.calculations
 
 
 This assumes that the source code for the project is 

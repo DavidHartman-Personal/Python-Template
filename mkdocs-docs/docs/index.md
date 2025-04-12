@@ -9,10 +9,6 @@ Its aim is to give you a framework to build your
 project documentation using Python, MkDocs,
 mkdocstrings, and the Material for MkDocs theme.
 
-Steps/Notes for this project:
-
-* Confirm required modules are available.
-
 ## Table Of Contents
 
 The documentation follows the best practice for

@@ -6,17 +6,79 @@ See my confluence page [Organizing Python Resources] for more details.
 
 ## Usage of template
 
-The following steps should be completed once a pyton project has been created using this template.
+The following steps should be completed once a pyton project has been created using this template based on the type 
+of python application being created:
+
+1. One-off script - This would reflect the simplest pyton application that is typically just a single python script.
+2. Installable single package - Will have all python files together in a single directory with other files kept at 
+   the top directory (e.g. README, .gitignore, etc.)
+3. Application with Internal Packages - In larger applications, you may have one or more internal packages that are 
+   either tied together with a main runner script or that provide specific functionality to a larger library you are 
+   packaging.
+4. Option to turn python project/script/module into a operating system command line executable.
+
+For each of these project scenarios the first steps include:
 
 1. Create new repo using this repo as the template.  This can be done by running the following command: 
-   1. `gh repo create <repo new> --template DavidHartman-Personal/Python-Template --private`
+   1. `gh rep
+   2. o create <repo new> --template DavidHartman-Personal/Python-Template --private`
 2. Clone repo locally using Git->Clone in Pycharm
-3. Update the sample/ project directory as needed, renaming and/or remove files as needed.
-4. Update the docs/ folder as needed to assist with creating project documentation.
+
+### One-off script
+
+1. A folder that just contains python code and can be at the project root directory.
+2. A single README is generally sufficient to manage documentation.
+3. Use docstrings as described below.  The section below includes templates that can be used in the project.
+4. The setup.py file should be updated with basic package information.
+5. The file sample/core.py can be used as the starting point for the one-off script.  It can be copied to the top 
+   level directory along with the __init__.py file and the sample/ folder can be deleted.
+6. The docs/ and mkdocs-docs/ folders can be removed with the README_BASE.md being the starting point for 
+   documentation.  The README.md (i.e. this file) file can be removed when no longer needed.
+7. If using the mkdocs module to generate documentation, the mkdocs-docs/docs/REFERENCE.md file can be reviewed and 
+   the mkdocs syntax to include python docstrings can be addeded as needed.  
+8. If tests are needed, the test files in the tests/ folder can be copied to the root directory and the tests/ 
+   folder can be removed.
+9. The requirements.txt file should be updated to identify any required python modules/packages.
+
+
+Running the following in the root project directory prints out package docstrings in Markdown format.  This can be 
+then added to the readme file.
+
+pydoc-markdown -p <package name (e.g. recursive_iterdir)>
+
+pandoc -s -r html http://www.gnu.org/software/make/ -o example12.text
+
+To convert hello.html from HTML to Markdown:
+
+pandoc -f html -t markdown hello.html
+
+### Installable single package
+
+1. A folder that just contains python code and can be at the project root directory.
+2. A single README is generally sufficient to manage documentation.
+3. Use docstrings as described below.  The section below includes templates that can be used in the project.
+4. The setup.py file should be updated with basic package information.
+5. The file sample/core.py can be used as the starting point for the one-off script.  It can be copied to the top 
+   level directory along with the __init__.py file and the sample/ folder can be deleted.
+6. The docs/ and mkdocs-docs/ folders can be removed with the README_BASE.md being the starting point for 
+   documentation.  The README.md file can be removed when no longer needed.
+7. If tests are needed, the test files in the tests/ folder can be copied to the root directory and the tests/ 
+   folder can be removed.
+8. The requirements.txt file should be updated to identify any required python modules/packages.
+
+
+Test implementation of project setup using this template:
+
+1. Create new repo using this repo as the template.  This can be done by running the following command: 
+   1. `gh repo create test_repo --template DavidHartman-Personal/Python-Template --private`
+2. Clone repo locally using Git->Clone in Pycharm
+3. Move core.py and __init__.py from the sample/ directory to the root directory and delete sample/ folder..
+4. Move the test_basic file from the tests/ folder and delete tests/folder.
 5. Use docstrings as described below.  The section below includes templates that can be used in the project.
 6. Be sure to update this README file to remove any text that is not relevant for the project.
 
-- [ ] Add Documentation regarding creating/running tests.
+ 
+ [ ] Add Documentation regarding creating/running tests.
 
 To test using this template repository, the following steps can be done.
 
@@ -30,6 +92,7 @@ To test using this template repository, the following steps can be done.
    1. `sudo rm -rf <project directory>`
    2. NOTE: May need to run this twice to handle permissions issue with .git/ directory.
 
+`gh repo create test_repo --template DavidHartman-Personal/Python-Template --private`
 `gh repo delete test_repo --yes`
 Need to run the following twice due to permissions issue.
 `sudo rm -rf /mnt/c/Users/david/Dropbox/Programming/Python/PyCharmProjects/test_repo`
@@ -38,37 +101,11 @@ Need to run the following twice due to permissions issue.
 
 This section describes how this template is organized.  The code organization and examples included follow the guidance from [Hitchhiker's Guide to Python][Hitchhikers].
 
-### docs/
-
-The docs folder contains templates and other files used to create project documentation. The documentation
-generation processes utilize sphinx and supporting processes to create/update documentation and deploy documentation
-via mkdocs server. See the section below on creating/updating documentation.
-
 ### mkdocs-docs/
 
-The docs folder contains templates and other files used to create and deploy project documentation. The 
-documentation is deployed using mkdocs.  
-In order to deploy/use mkdocs, confirm that the following python packages are installed and available.
+This folder contains files needed to create and maintain project documentation. 
 
-`python -m pip list | grep mkdoc`
-
-The following modules should be included:
-* mkdocs
-* mkdocs-autorefs
-* mkdocs-get-deps
-* mkdocs-material
-* mkdocs-material-extensions
-* mkdocstrings
-* mkdocstrings-python
-
-The docs/ folder includes standard markdown files that should be created/deployed.  In order to confirm that mkdocs 
-is set up and configured correctly, run the mkdocs server and navigate to the URL the documentation is being served 
-on (default site is https://127.0.0.1:8000).
-
-`mkdocs serve`
-
-The main landing page provides details on how to further configure and deploy project documentation. See the [mkdocs 
-documentation] for additional details.
+See the [README_DOCUMENTATION.md](mkdocs-docs/README_DOCUMENTATION.md) file for additional information. 
 
 ### sample/
 
@@ -135,10 +172,10 @@ def function_example(param1, param2withdefault=False):
       param1 (<data type>) : Describe param1
       param2withdefault (<data type>) : A flag used to print the columns to the console
                                         (default is False)
-    Returns
+    Returns:
       name (<data type>): Describe return results
     
-    Raises
+    Raises:
       IOError: An error occurred accessing the smalltable.
     """
 ```

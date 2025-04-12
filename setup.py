@@ -8,7 +8,7 @@ with open('README.md') as f:
     readme = f.read()
 
 with open('LICENSE') as f:
-    license = f.read()
+    license_text = f.read()
 
 setup(
     name='sample',
@@ -18,7 +18,7 @@ setup(
     author='David Hartman',
     author_email='dhartman@challengetaker.com',
     url='TBD',
-    license=license,
+    license=license_text,
     packages=find_packages(exclude=('tests', 'docs'))
 )
 
