@@ -17,12 +17,29 @@ of python application being created:
    packaging.
 4. Option to turn python project/script/module into a operating system command line executable.
 
+To test using this template repository, the following steps can be done.
+
+1. Create new repo using this repo as the template.  This can be done by running the following command: 
+   1. `gh repo create <repo new> --template DavidHartman-Personal/Python-Template --private`
+2. Test changes to template including updates to the sample code, documentation, etc.
+3. Delete the repo with the following once testing is complete.  The delete_repo permission needs to be granted first.
+   1. `gh auth refresh -h github.com -s delete_repo`
+   2. `gh repo delete <repo to delete>`
+4. Cleanup local PyCharm project.  Needs to be run as sudo to handle .git/ directory:
+   1. `sudo rm -rf <project directory>`
+   2. NOTE: May need to run this twice to handle permissions issue with .git/ directory.
+
+`gh repo create test_repo --template DavidHartman-Personal/Python-Template --private`
+`gh repo delete test_repo --yes`
+Need to run the following twice due to permissions issue.
+`sudo rm -rf /mnt/c/Users/david/Dropbox/Programming/Python/PyCharmProjects/test_repo`
+
 For each of these project scenarios the first steps include:
 
 1. Create new repo using this repo as the template.  This can be done by running the following command: 
-   1. `gh rep
-   2. o create <repo new> --template DavidHartman-Personal/Python-Template --private`
+   1. `gh repo create <repo new> --template DavidHartman-Personal/Python-Template --private`
 2. Clone repo locally using Git->Clone in Pycharm
+
 
 ### One-off script
 
@@ -40,6 +57,7 @@ For each of these project scenarios the first steps include:
    folder can be removed.
 9. The requirements.txt file should be updated to identify any required python modules/packages.
 
+export PYTHONPATH="/path/to/other/projects/directory:$PYTHONPATH"
 
 Running the following in the root project directory prints out package docstrings in Markdown format.  This can be 
 then added to the readme file.
@@ -80,22 +98,6 @@ Test implementation of project setup using this template:
  
  [ ] Add Documentation regarding creating/running tests.
 
-To test using this template repository, the following steps can be done.
-
-1. Create new repo using this repo as the template.  This can be done by running the following command: 
-   1. `gh repo create <repo new> --template DavidHartman-Personal/Python-Template --private`
-2. Test changes to template including updates to the sample code, documentation, etc.
-3. Delete the repo with the following once testing is complete.  The delete_repo permission needs to be granted first.
-   1. `gh auth refresh -h github.com -s delete_repo`
-   2. `gh repo delete <repo to delete>`
-4. Cleanup local PyCharm project.  Needs to be run as sudo to handle .git/ directory:
-   1. `sudo rm -rf <project directory>`
-   2. NOTE: May need to run this twice to handle permissions issue with .git/ directory.
-
-`gh repo create test_repo --template DavidHartman-Personal/Python-Template --private`
-`gh repo delete test_repo --yes`
-Need to run the following twice due to permissions issue.
-`sudo rm -rf /mnt/c/Users/david/Dropbox/Programming/Python/PyCharmProjects/test_repo`
 
 ## Project/Template Organization
 
@@ -163,7 +165,7 @@ The below are templates for the various types of docstrings that should be used 
 #### Function Header Comment Block
 
 ```python
-def function_example(param1, param2withdefault=False):
+def function_example(param1, param2withdefault=False) -> None:
     """Gets and prints the spreadsheet's header columns
     
     Longer function header comment describing details/purpose of the function
